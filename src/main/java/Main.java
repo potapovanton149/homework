@@ -1,44 +1,44 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.SortedMap;
 
 public class Main {
     public static void main(String[] args) {
-        Point point1 = new Point(1, 5);
-        Point point2 = new Point(2, 8);
-        Point point3 = new Point(5, 3);
-        Point point4 = new Point(8, 9);
+        City a = new City("a");
+        City b = new City("b");
+        City c = new City("c");
+        City d = new City("d");
+        City e = new City("e");
+        City f = new City("f");
 
-        PolyLine polyLine = new PolyLine();
-
-        polyLine.pointList.add(point1);
-        polyLine.pointList.add(point2);
-        polyLine.pointList.add(point3);
-        polyLine.pointList.add(point4);
-
-        System.out.println("1.Создать Ломаную, проходящую через точки {1;5}, {2;8}, {5;3}, {8,9}:\n" + polyLine);
+        a.addPath(b, 5);
+        a.addPath(d, 6);
+        a.addPath(f, 1);
 
 
-        System.out.println("\n\n\n2. Рассчитать длину Ломаной: \n" + polyLine.getLength());
+        b.addPath(a,5);
+        b.addPath(c, 3);
+
+        c.addPath(b, 3);
+        c.addPath(d, 4);
+
+        d.addPath(a, 6);
+        d.addPath(c, 4);
+        d.addPath(e, 2);
+
+        e.addPath(f, 2);
+
+        f.addPath(b, 1);
+        f.addPath(e, 2);
 
 
-        System.out.println("\n\n\n3. Получить у Ломаной массив Линий:\n" + Arrays.toString(polyLine.getLines()));
+        System.out.println("1. Если передано число 1, результат должен быть либо A, либо С:\n" + (b.travelBy(1)));
+        System.out.println("\n2. Если передано число 2, результат должен быть либо B, либо D, либо F:\n" + b.travelBy(2));
+        System.out.println("\n3.Если передано число 3, результат может быть любом городом:\n" + (b.travelBy(3)));
 
+        b.setOfPaths.remove(c);
+        f.setOfPaths.remove(e);
+        System.out.println("\n4.Настройте объекты городов так, чтобы при передаче числа 3 последним городом оказался город A:\n" + (e.travelBy(3)));
 
-        Point[] arrayPoints = polyLine.getLines();
-        double lengthArrayPoints = 0;
-        for (int i = 0; i < arrayPoints.length - 1; i++) {
-            double deltaX = arrayPoints[i + 1].getX() - arrayPoints[i].getX();
-            double deltaY = arrayPoints[i + 1].getY() - arrayPoints[i].getY();
-            lengthArrayPoints += Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        }
-        System.out.println("\n\n\n4. Рассчитать длину массива Линий:\n" + lengthArrayPoints);
-
-
-        System.out.println("\n\n\n5. Сравнить длину Ломаной и массива Линий:\n" + (lengthArrayPoints == polyLine.getLength()));
-
-
-        point2.setX(12);
-        System.out.println(String.format("\n\n\n6. Изменить координаты Точки {2,8} таким образом, чтобы она стала иметь значение {12,8}. \n\n" +
-                        "Точка %s \nЛоманая %s \nМассив %s", point2, polyLine, Arrays.toString(polyLine.getLines())));
     }
 }
