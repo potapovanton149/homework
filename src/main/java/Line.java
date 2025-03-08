@@ -36,14 +36,10 @@ public class Line {
 
     @Override
     public String toString() {
-        return "Линия от {X=" +
-                startLine.getX() +
-                ", Y=" +
-                startLine.getY() +
-                "} до {X=" +
-                endLine.getX()+
-                " Y=" +
-                endLine.getY() +
-                "}";
+        return String.format("Линия от {X=%d, Y=%d} до {X=%d,  Y=%d}",
+                startLine.getX(),
+                startLine.getY(),
+                endLine.getX(),
+                endLine.getY());
     }
 }

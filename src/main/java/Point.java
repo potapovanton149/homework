@@ -27,21 +27,14 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point{" +
-                "X=" + x +
-                ", Y=" + y +
-                '}';
+        return String.format("{%d;%d}", x, y);
     }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Point)) return false;
-
         Point point = (Point) o;
-
-        if (this.x == point.getX()
-                && this.y == point.getY()) return true;
-        return false;
+        return x == point.x && y == point.y;
     }
 
     @Override
