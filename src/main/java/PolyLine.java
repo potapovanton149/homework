@@ -38,13 +38,11 @@ public class PolyLine {
     }
 
     public double getLength() {
-        public double getLength () {
             double res = 0;
             for (Line value : lineList) {
                 res += value.getLenght();
             }
             return res;
-        }
     }
 
     @Override
