@@ -11,8 +11,7 @@ public class Main {
         pointList.add(new Point(5, 3));
         pointList.add(new Point(8, 9));
 
-        PolyLine polyLine = new PolyLine(pointList);
-
+        PolyLine polyLine = PolyLine.fromPoint(pointList);
 
 
         System.out.println("1.Создать Ломаную, проходящую через точки {1;5}, {2;8}, {5;3}, {8,9}:\n" + polyLine);

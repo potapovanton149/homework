@@ -8,52 +8,51 @@ import java.util.List;
 //3. Переиспользовать код из класса Line при реализации метода расчета длины ломаной линии
 
 public class PolyLine {
-   List<Line> lineList;
+    List<Line> lineList;
 
-    PolyLine() {
+    private PolyLine() {
         lineList = new ArrayList<>();
     }
 
-    PolyLine(List<Point> listPoint){
-        lineList = new ArrayList<>();
+    public static PolyLine fromLines(List<Line> listLine) {
+        PolyLine polyLine = new PolyLine();
+        polyLine.lineList = listLine;
+        return polyLine;
+    }
+
+    public static PolyLine fromPoint(List<Point> listPoint) {
+        PolyLine polyLine = new PolyLine();
+        polyLine.lineList = new ArrayList<>();
 
         for (int i = 0; i < listPoint.size() - 1; i++) {
             Line line = new Line(listPoint.get(i), listPoint.get(i + 1));
-            lineList.add(line);
+            polyLine.lineList.add(line);
         }
+
+        return polyLine;
     }
 
     public Line[] getLines() {
-        Line[] arrayLines = lineList.toArray(Line[]::new);
-
-        for (int i = 0; i < lineList.size(); i++) {
-            arrayLines[i] = lineList.get(i);
-        }
+        Line[] arrayLines = lineList.toArray(new Line[lineList.size()]);
         return arrayLines;
     }
 
     public double getLength() {
-        double res = 0;
-        Line line = new Line(0, 0, 0, 0);
-
-        for (int i = 0; i < lineList.size(); i++) {
-            line = lineList.get(i);
-            res += line.getLenght();
+        public double getLength () {
+            double res = 0;
+            for (Line value : lineList) {
+                res += value.getLenght();
+            }
+            return res;
         }
-        return res;
     }
 
     @Override
     public String toString() {
         String res = "Линия [";
         int i = 1;
-        for (Line line : lineList){
-            res += "Линия " +
-                    i + String.format(" {%d, %d : %d, %d}, ",
-                    line.getStartLine().getX(),
-                    line.getStartLine().getY(),
-                    line.getEndLine().getX(),
-                    line.getEndLine().getY());
+        for (Line line : lineList) {
+            res += "Линия " + i + String.format(" {%d, %d : %d, %d}, ", line.getStartLine().getX(), line.getStartLine().getY(), line.getEndLine().getX(), line.getEndLine().getY());
             i++;
         }
         return res;
