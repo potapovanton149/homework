@@ -2,20 +2,20 @@ import java.util.SortedMap;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            System.out.println("Посчитать f1.sum(f2).sum(f3).minus(5), где f1 это одна треть, f2 две пятых, а f3 это семь восьмых:");
+        //Пробуем разные конструкторы и выводим результат
 
-            Fraction f1 = new Fraction(1, 3);
-            Fraction f2 = new Fraction(2, 5);
-            Fraction f3 = new Fraction(7, 8);
-            /**
-             * По условию в ТЗ падаем в исключение, так как число отрицательное. Надеюсь, что так и задумано)
-             */
-            Fraction fRes = f1.sum(f2).sum(f3).minus(5);
-            System.out.println(fRes);
+        Square square1 = new Square(new Point(2,2), 3);
+        System.out.println(square1);
 
-        } catch (IllegalArgumentException e){
-            System.out.println("Поздравляю! Вы получили событие с уровнем ERROR:" + e.getMessage());
-        }
+        Square square2 = new Square(3, 3, 4);
+        System.out.println(square2);
+
+        //В первом квадрате используем сеттер с числами координат. Выводим результат.
+        square1.setPoint(5, 5);
+        System.out.println(square1);
+
+        //Во втором квадрате используем сеттер с объектом "Точка". Выводим результат.
+        square2.setPoint(new Point(5,5));
+        System.out.println(square2);
     }
 }
