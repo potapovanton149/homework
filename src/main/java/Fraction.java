@@ -2,8 +2,8 @@ public class Fraction {
     /**
      * Из ТЗ "Объекты дробей не могут изменять свое состояние" как я понял, подразумевает поля в виде констант
      */
-    private final int NUMERATOR;
-    private final int DENOMINATOR;
+    private final int numerator;
+    private final int denominator;
 
     /**
      *Под условие из ТЗ "Для знаменателя отрицательное значение недопустимо" добавил исключение.
@@ -13,25 +13,25 @@ public class Fraction {
      * По Java больше все зашел этот ресурс: https://metanit.com/java/tutorial/2.10.php
      */
     public Fraction(int numerator, int denominator) {
-        if (numerator < 0) {
-            throw new IllegalArgumentException("Числитель не может быть отрицательным");
+        if (denominator < 0) {
+            throw new IllegalArgumentException("Знаменатель не может быть отрицательным");
         }
-        this.NUMERATOR = numerator;
-        this.DENOMINATOR = denominator;
+        this.numerator = numerator;
+        this.denominator = denominator;
     }
 
-    public int getNUMERATOR() {
-        return NUMERATOR;
+    public int getNumerator() {
+        return numerator;
     }
 
-    public int getDENOMINATOR() {
-        return DENOMINATOR;
+    public int getDenominator() {
+        return denominator;
     }
 
     public Fraction sum(Fraction f){
-        int newDenominator = this.getDENOMINATOR() * f.getDENOMINATOR();
-        int newNumerator = this.getNUMERATOR() * f.getDENOMINATOR() +
-                f.getNUMERATOR() * this.getDENOMINATOR();
+        int newDenominator = this.getDenominator() * f.getDenominator();
+        int newNumerator = this.getNumerator() * f.getDenominator() +
+                f.getNumerator() * this.getDenominator();
         return new Fraction((newNumerator), newDenominator);
     }
     /**
@@ -48,9 +48,9 @@ public class Fraction {
     }
 
     public Fraction minus(Fraction f){
-        int newDenominator = this.getDENOMINATOR() * f.getDENOMINATOR();
-        int newNumerator = this.getNUMERATOR() * f.getDENOMINATOR() -
-                f.getNUMERATOR() * this.getDENOMINATOR();
+        int newDenominator = this.getDenominator() * f.getDenominator();
+        int newNumerator = this.getNumerator() * f.getDenominator() -
+                f.getNumerator() * this.getDenominator();
         return new Fraction(newNumerator, newDenominator);
     }
 
@@ -61,8 +61,8 @@ public class Fraction {
 
     @Override
     public String toString() {
-        return "{" + NUMERATOR +
-                "/" + DENOMINATOR +
+        return "{" + numerator +
+                "/" + denominator +
                 "}";
     }
 }
