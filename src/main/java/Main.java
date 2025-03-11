@@ -2,20 +2,27 @@ import java.util.SortedMap;
 
 public class Main {
     public static void main(String[] args) {
-        //Пробуем разные конструкторы и выводим результат
+        try {
+            //Создаем объект с передачей массива чисел
+            int[] arrayGrades = {2, 2, 3, 2};
+            Student student1 = new Student("Anton", arrayGrades);
+            System.out.println(student1);
+            //Добавляем объекту одну оценку, смотрим результат
+            student1.addGrades(5);
+            System.out.println(student1);
 
-        Square square1 = new Square(new Point(2,2), 3);
-        System.out.println(square1);
+            //Создаем объект с передачей произвольного количества аргументов
+            Student student2 = new Student("Vlad", 5, 5, 4, 4, 5);
+            System.out.println(student2);
+            //Добавляем объекту оценки в виде множественного аргумента, смотрим результат
+            student2.addGrades(5, 4, 2, 5, 4);
+            System.out.println(student2);
 
-        Square square2 = new Square(3, 3, 4);
-        System.out.println(square2);
 
-        //В первом квадрате используем сеттер с числами координат. Выводим результат.
-        square1.setPoint(5, 5);
-        System.out.println(square1);
-
-        //Во втором квадрате используем сеттер с объектом "Точка". Выводим результат.
-        square2.setPoint(new Point(5,5));
-        System.out.println(square2);
+            //Вызываем исключение. Пытаемся добавить некорректные оценки:
+            student1.addGrades(1,6);
+        } catch (Exception e) {
+            System.out.println("Событие с уровне Error: " + e.getMessage());
+        }
     }
 }
