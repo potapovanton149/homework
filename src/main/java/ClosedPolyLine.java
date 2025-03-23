@@ -44,13 +44,4 @@ public class ClosedPolyLine extends PolyLine {
                         lineList.get(lineList.size() - 1).getEndLine(),
                         lineList.get(0).getStartLine()));
     }
-
-    @Override
-    public double getLength() {
-        double res = 0;
-        for (Line value : lineList) {
-            res += value.getLenght();
-        }
-        return res;
-    }
 }
