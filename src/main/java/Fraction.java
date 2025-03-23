@@ -55,7 +55,7 @@ public class Fraction extends Number {
     }
 
     public double doubleValue(){
-        return NUMERATOR / DENOMINATOR;
+        return (double) NUMERATOR / DENOMINATOR;
     }
 
     @Override
