@@ -18,44 +18,44 @@ public class Fraction extends Number {
         return DENOMINATOR;
     }
 
-    public Fraction sum(Fraction f){
+    public Fraction sum(Fraction f) {
         int newDenominator = this.getDENOMINATOR() * f.getDENOMINATOR();
         int newNumerator = this.getNUMERATOR() * f.getDENOMINATOR() +
                 f.getNUMERATOR() * this.getDENOMINATOR();
         return new Fraction((newNumerator), newDenominator);
     }
 
-    public Fraction sum(int number){
+    public Fraction sum(int number) {
         Fraction fraction = new Fraction(number, 1);
         return sum(fraction);
     }
 
-    public Fraction minus(Fraction f){
+    public Fraction minus(Fraction f) {
         int newDenominator = this.getDENOMINATOR() * f.getDENOMINATOR();
         int newNumerator = this.getNUMERATOR() * f.getDENOMINATOR() -
                 f.getNUMERATOR() * this.getDENOMINATOR();
         return new Fraction(newNumerator, newDenominator);
     }
 
-    public Fraction minus(int number){
+    public Fraction minus(int number) {
         Fraction fraction = new Fraction(number, 1);
         return minus(fraction);
     }
 
-    public int intValue(){
-        return NUMERATOR / DENOMINATOR;
+    public int intValue() {
+        return (int) NUMERATOR / DENOMINATOR;
     }
 
-    public long longValue(){
-        return NUMERATOR / DENOMINATOR;
+    public long longValue() {
+        return (long) NUMERATOR / DENOMINATOR;
     }
 
-    public float floatValue(){
-        return NUMERATOR / DENOMINATOR;
+    public float floatValue() {
+        return (float) NUMERATOR / DENOMINATOR;
     }
 
-    public double doubleValue(){
-        return NUMERATOR / DENOMINATOR;
+    public double doubleValue() {
+        return (double) NUMERATOR / DENOMINATOR;
     }
 
     @Override
