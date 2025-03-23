@@ -12,7 +12,6 @@ public class Department {
 
     public Department(String nameDepartament, String nameBoss){
         this.nameDepartament = nameDepartament;
-        //вот тут доолго думал, как передать второй аргумент :)
         this.boss = new Employee(nameBoss, this);
     }
 
