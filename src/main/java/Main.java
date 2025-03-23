@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedMap;
 
 public class Main {
     public static double totalLengthLine(List<Measurable> Measurable) {
@@ -23,18 +22,14 @@ public class Main {
 
         PolyLine polyLine = new PolyLine().fromPoint(pointList);
         ClosedPolyLine closedPolyLine = new ClosedPolyLine(pointsArray);
+        NewString newString =  new NewString("Объект");
+
 
         List<Measurable> measurables = new ArrayList<>();
         measurables.add(polyLine);
         measurables.add(closedPolyLine);
+        measurables.add(newString);
 
-
-        System.out.println("Создаем замкнутую линию, проходящую через точки {1;5}, {2;8}, {5;3}, {8,9}:\n" + closedPolyLine);
-        System.out.println("\nРассчитываем длину замкнутой линии: \n" + closedPolyLine.getLength());
-
-        System.out.println("\n\n\nСоздаем ломаную линию, проходящую через точки {1;5}, {2;8}, {5;3}, {8,9}:\n" + polyLine);
-        System.out.println("\nРассчитываем длину ломаной линии: \n" + polyLine.getLength());
-
-        System.out.println("\n\n\nСумма длины всех объектов:\n" + Main.totalLengthLine(measurables));
+        System.out.println("Сумма длины всех объектов:\n" + Main.totalLengthLine(measurables));
     }
 }
