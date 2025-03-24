@@ -4,7 +4,7 @@ public class Parrot extends Bird {
     private String text;
 
     public Parrot(String text) {
-        super("cuckoo");
+        super("parrot");
         this.text = text;
     }
 
