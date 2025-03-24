@@ -39,6 +39,7 @@ public class Main {
         list.add(circle3);
         list.add(rectangle3);
 
+
         System.out.format("Общая площадь фигур переданная в список: %d", sumAllAreas(list));
     }
 }
