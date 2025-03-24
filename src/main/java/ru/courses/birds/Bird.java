@@ -10,5 +10,5 @@ abstract public class Bird {
     public String getBirdSpecies() {
         return birdSpecies;
     }
-    void sing() {}
+    public void sing() {}
 }
