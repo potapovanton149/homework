@@ -1,41 +1,21 @@
 package ru.courses.geometry;
 
-public class Square {
-    Point point;
-    private int sideLength;
+public class Square extends Figure{
 
-    public void setPoint(Point point) {
-        this.point = point;
+    public Square(Point point, int dimension) {
+        super(point, dimension);
     }
 
-    public void setPoint(int x, int y) {
-        this.point = new Point(x, y);
+    public Square(int x, int y, int dimension){
+        super(x, y, dimension);
     }
 
-    public void setSideLength(int sideLength) {
-        this.sideLength = sideLength;
-    }
-
-    public int getSideLength() {
-        return sideLength;
-    }
-
-    public Point getPoint() {
-        return point;
-    }
-
-    public Square(Point point, int sideLength) {
-        this.point = point;
-        this.sideLength = sideLength;
-    }
-
-    public Square(int x, int y, int sideLength){
-        this.point = new Point(x,y);
-        this.sideLength = sideLength;
+    public int getArea(){
+        return getDimension() * getDimension();
     }
 
     @Override
     public String toString() {
-        return String.format("Квадрат в точке %s со стороной %d", point.toString(), sideLength);
+        return String.format("Квадрат в точке %s со стороной %d", getPoint().toString(), getDimension());
     }
 }
