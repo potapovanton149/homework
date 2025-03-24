@@ -1,19 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Main {
-    public static double sumAll(List<Object> list) {
+    public static double sumAll(List<Number> numberList) {
         double sumAll = 0;
-        for (Object object : list) {
-            if (object instanceof Fraction) {
-                Fraction fraction = (Fraction) object;
-                sumAll += fraction.doubleValue();
-            } else if (object instanceof Integer) {
-                sumAll += (Integer) object;
-            } else if (object instanceof Double) {
-                sumAll += (Double) object;
-            }
+        for (Number number : numberList) {
+           sumAll += number.doubleValue();
         }
         return sumAll;
     }
@@ -23,12 +15,12 @@ public class Main {
         Fraction number2 = new Fraction(3, 5);
         double number3 = 2.3;
 
-        List<Object> objectList1 = new ArrayList<>();
-        objectList1.add(number1);
-        objectList1.add(number2);
-        objectList1.add(number3);
+        List<Number> numberList1 = new ArrayList<>();
+        numberList1.add(number1);
+        numberList1.add(number2);
+        numberList1.add(number3);
 
-        System.out.println(sumAll(objectList1));
+        System.out.println(sumAll(numberList1));
 
 
 
@@ -38,13 +30,13 @@ public class Main {
         int number6 = 3;
         Fraction number7 = new Fraction(3, 2);
 
-        List<Object> objectList2 = new ArrayList<>();
-        objectList2.add(number4);
-        objectList2.add(number5);
-        objectList2.add(number6);
-        objectList2.add(number7);
+        List<Number> numberList2 = new ArrayList<>();
+        numberList2.add(number4);
+        numberList2.add(number5);
+        numberList2.add(number6);
+        numberList2.add(number7);
 
-        System.out.println(sumAll(objectList2));
+        System.out.println(sumAll(numberList2));
 
 
 
@@ -52,11 +44,11 @@ public class Main {
         Fraction number8 = new Fraction(1 , 3);
         int number9 = 1;
 
-        List<Object> objectList3 = new ArrayList<>();
-        objectList3.add(number8);
-        objectList3.add(number9);
+        List<Number> numberList3 = new ArrayList<>();
+        numberList3.add(number8);
+        numberList3.add(number9);
 
-        System.out.println(sumAll(objectList3));
+        System.out.println(sumAll(numberList3));
 
     }
 }

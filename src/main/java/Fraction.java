@@ -1,67 +1,67 @@
 public class Fraction extends Number {
-    private final int NUMERATOR;
-    private final int DENOMINATOR;
+    private final int numerator;
+    private final int denominator;
 
     public Fraction(int numerator, int denominator) {
         if (numerator < 0) {
             throw new IllegalArgumentException("Числитель не может быть отрицательным");
         }
-        this.NUMERATOR = numerator;
-        this.DENOMINATOR = denominator;
+        this.numerator = numerator;
+        this.denominator = denominator;
     }
 
-    public int getNUMERATOR() {
-        return NUMERATOR;
+    public int getNumerator() {
+        return numerator;
     }
 
-    public int getDENOMINATOR() {
-        return DENOMINATOR;
+    public int getDenominator() {
+        return denominator;
     }
 
-    public Fraction sum(Fraction f){
-        int newDenominator = this.getDENOMINATOR() * f.getDENOMINATOR();
-        int newNumerator = this.getNUMERATOR() * f.getDENOMINATOR() +
-                f.getNUMERATOR() * this.getDENOMINATOR();
+    public Fraction sum(Fraction f) {
+        int newDenominator = this.getDenominator() * f.getDenominator();
+        int newNumerator = this.getNumerator() * f.getDenominator() +
+                f.getNumerator() * this.getDenominator();
         return new Fraction((newNumerator), newDenominator);
     }
 
-    public Fraction sum(int number){
+    public Fraction sum(int number) {
         Fraction fraction = new Fraction(number, 1);
         return sum(fraction);
     }
 
-    public Fraction minus(Fraction f){
-        int newDenominator = this.getDENOMINATOR() * f.getDENOMINATOR();
-        int newNumerator = this.getNUMERATOR() * f.getDENOMINATOR() -
-                f.getNUMERATOR() * this.getDENOMINATOR();
+    public Fraction minus(Fraction f) {
+        int newDenominator = this.getDenominator() * f.getDenominator();
+        int newNumerator = this.getNumerator() * f.getDenominator() -
+                f.getNumerator() * this.getDenominator();
         return new Fraction(newNumerator, newDenominator);
     }
 
-    public Fraction minus(int number){
+    public Fraction minus(int number) {
         Fraction fraction = new Fraction(number, 1);
         return minus(fraction);
     }
 
-    public int intValue(){
-        return NUMERATOR / DENOMINATOR;
+    public int intValue() {
+        return (int) numerator / denominator;
     }
 
-    public long longValue(){
-        return NUMERATOR / DENOMINATOR;
+    public long longValue() {
+        return (long) numerator / denominator;
     }
 
-    public float floatValue(){
-        return NUMERATOR / DENOMINATOR;
+    public float floatValue() {
+        return (float) numerator / denominator;
     }
 
-    public double doubleValue(){
-        return (double) NUMERATOR / DENOMINATOR;
+    public double doubleValue() {
+        return (double) numerator / denominator;
     }
 
     @Override
     public String toString() {
-        return "{" + NUMERATOR +
-                "/" + DENOMINATOR +
+        return "{" + numerator +
+                "/" + denominator +
                 "}";
     }
 }
