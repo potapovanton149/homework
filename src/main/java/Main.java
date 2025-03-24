@@ -2,27 +2,18 @@ import java.util.SortedMap;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            //Пробуем разные конструкторы и выводим результат
+        //Сразу создаем два департамента с двумя руководителями. При таком подходе мы выполняем условие:
+        //"Необходимо гарантировать, что Начальник отдела всегда работает в том отделе, где он начальник."
 
-            Square square1 = new Square(new Point(2, 2), 3);
-            System.out.println(square1);
+        Department departmentQA = new Department("DepartmentQA", "Влад");
+        System.out.println(departmentQA.getBoss());
+        Department departmentRun = new Department("DepartmentRun", "Антон");
+        System.out.println(departmentRun.getBoss());
 
-            Square square2 = new Square(3, 3, 4);
-            System.out.println(square2);
-
-            //В первом квадрате используем сеттер с числами координат. Выводим результат.
-            square1.setPoint(5, 5);
-            System.out.println(square1);
-
-            //Во втором квадрате используем сеттер с объектом "Точка". Выводим результат.
-            square2.setPoint(new Point(5, 5));
-            System.out.println(square2);
-
-            //Пробуем установить длину квадрата отрицательным числом
-            square1.setSideLength(-1);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Вы получили событие с уровнем ERROR: " + e.getMessage());
-        }
+        //Отдаем по одному сотруднику в каждый департамент:
+        Employee employee1 = new Employee("Сергей", departmentQA);
+        System.out.println(employee1);
+        Employee employee2 = new Employee("Николай", departmentRun);
+        System.out.println(employee2);
     }
 }
