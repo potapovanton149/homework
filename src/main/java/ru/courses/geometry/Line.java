@@ -1,4 +1,6 @@
-public class Line implements Measurable{
+package ru.courses.geometry;
+
+public class Line implements Measurable {
     private Point startLine;
     private Point endLine;
 

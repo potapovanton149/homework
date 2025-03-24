@@ -1,3 +1,5 @@
+package ru.courses.company;
+
 import java.util.Objects;
 
 public class Employee {

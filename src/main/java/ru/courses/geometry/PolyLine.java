@@ -1,7 +1,9 @@
+package ru.courses.geometry;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class PolyLine implements Measurable{
+public class PolyLine implements Measurable {
     protected List<Line> lineList;
 
     protected PolyLine() {

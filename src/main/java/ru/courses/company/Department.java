@@ -1,3 +1,5 @@
+package ru.courses.company;
+
 public class Department {
     private String nameDepartament;
     private Employee boss;

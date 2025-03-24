@@ -1,3 +1,5 @@
+package ru.courses.mathematics;
+
 public class Fraction extends Number {
     private final int NUMERATOR;
     private final int DENOMINATOR;

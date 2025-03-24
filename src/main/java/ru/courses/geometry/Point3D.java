@@ -1,6 +1,8 @@
+package ru.courses.geometry;
+
 import java.util.Objects;
 
-public class Point3D extends Point{
+public class Point3D extends Point {
     private int z;
 
     Point3D(int x, int y, int z){

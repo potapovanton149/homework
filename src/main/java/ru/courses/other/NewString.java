@@ -1,4 +1,8 @@
-public class NewString implements Measurable{
+package ru.courses.other;
+
+import ru.courses.geometry.Measurable;
+
+public class NewString implements Measurable {
     private String string;
 
     NewString(String string){
