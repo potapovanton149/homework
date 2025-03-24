@@ -1,27 +1,27 @@
 public class Fraction extends Number {
-    private final int NUMERATOR;
-    private final int DENOMINATOR;
+    private final int numerator;
+    private final int denominator;
 
     public Fraction(int numerator, int denominator) {
         if (numerator < 0) {
             throw new IllegalArgumentException("Числитель не может быть отрицательным");
         }
-        this.NUMERATOR = numerator;
-        this.DENOMINATOR = denominator;
+        this.numerator = numerator;
+        this.denominator = denominator;
     }
 
-    public int getNUMERATOR() {
-        return NUMERATOR;
+    public int getNumerator() {
+        return numerator;
     }
 
-    public int getDENOMINATOR() {
-        return DENOMINATOR;
+    public int getDenominator() {
+        return denominator;
     }
 
     public Fraction sum(Fraction f) {
-        int newDenominator = this.getDENOMINATOR() * f.getDENOMINATOR();
-        int newNumerator = this.getNUMERATOR() * f.getDENOMINATOR() +
-                f.getNUMERATOR() * this.getDENOMINATOR();
+        int newDenominator = this.getDenominator() * f.getDenominator();
+        int newNumerator = this.getNumerator() * f.getDenominator() +
+                f.getNumerator() * this.getDenominator();
         return new Fraction((newNumerator), newDenominator);
     }
 
@@ -31,9 +31,9 @@ public class Fraction extends Number {
     }
 
     public Fraction minus(Fraction f) {
-        int newDenominator = this.getDENOMINATOR() * f.getDENOMINATOR();
-        int newNumerator = this.getNUMERATOR() * f.getDENOMINATOR() -
-                f.getNUMERATOR() * this.getDENOMINATOR();
+        int newDenominator = this.getDenominator() * f.getDenominator();
+        int newNumerator = this.getNumerator() * f.getDenominator() -
+                f.getNumerator() * this.getDenominator();
         return new Fraction(newNumerator, newDenominator);
     }
 
@@ -43,25 +43,25 @@ public class Fraction extends Number {
     }
 
     public int intValue() {
-        return (int) NUMERATOR / DENOMINATOR;
+        return (int) numerator / denominator;
     }
 
     public long longValue() {
-        return (long) NUMERATOR / DENOMINATOR;
+        return (long) numerator / denominator;
     }
 
     public float floatValue() {
-        return (float) NUMERATOR / DENOMINATOR;
+        return (float) numerator / denominator;
     }
 
     public double doubleValue() {
-        return (double) NUMERATOR / DENOMINATOR;
+        return (double) numerator / denominator;
     }
 
     @Override
     public String toString() {
-        return "{" + NUMERATOR +
-                "/" + DENOMINATOR +
+        return "{" + numerator +
+                "/" + denominator +
                 "}";
     }
 }
