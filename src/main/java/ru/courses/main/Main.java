@@ -1,13 +1,13 @@
 package ru.courses.main;
 
-import ru.courses.geometry.Point2D;
+import ru.courses.mathematics.Fraction;
 
 public class Main {
     public static void main(String[] args) {
-        Point2D point1 = new Point2D(1, 2);
-        Point2D point2 = point1.clone();
+        Fraction fraction1 = new Fraction(1, 3);
+        Fraction fraction2 = new Fraction(1, 3);
 
-        System.out.println(point1.hashCode() == point2.hashCode());
-        System.out.println(point1.equals(point2));
+        System.out.println(fraction1.hashCode() == fraction2.hashCode()) ;
+        System.out.println(fraction1.equals(fraction2));
     }
 }
