@@ -16,12 +16,12 @@ public class PolyLine implements Measurable {
         return polyLine;
     }
 
-    public PolyLine fromPoint(List<Point> listPoint) {
+    public PolyLine fromPoint(List<Point2D> listPoint2D) {
         PolyLine polyLine = new PolyLine();
         polyLine.lineList = new ArrayList<>();
 
-        for (int i = 0; i < listPoint.size() - 1; i++) {
-            Line line = new Line(listPoint.get(i), listPoint.get(i + 1));
+        for (int i = 0; i < listPoint2D.size() - 1; i++) {
+            Line line = new Line(listPoint2D.get(i), listPoint2D.get(i + 1));
             polyLine.lineList.add(line);
         }
 

@@ -2,8 +2,8 @@ package ru.courses.geometry;
 
 public class Square extends Figure{
 
-    public Square(Point point, int dimension) {
-        super(point, dimension);
+    public Square(Point2D point2D, int dimension) {
+        super(point2D, dimension);
     }
 
     public Square(int x, int y, int dimension){

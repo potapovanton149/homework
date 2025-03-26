@@ -32,10 +32,10 @@ public class ClosedPolyLine extends PolyLine {
                         lineList.get(0).getStartLine()));
     }
 
-    ClosedPolyLine(Point... listPoint) {
+    ClosedPolyLine(Point2D... listPoint2D) {
         super();
-        for (int i = 0; i < listPoint.length - 1; i++) {
-            lineList.add(new Line(listPoint[i], listPoint[i + 1]));
+        for (int i = 0; i < listPoint2D.length - 1; i++) {
+            lineList.add(new Line(listPoint2D[i], listPoint2D[i + 1]));
         }
 
         //замыкаем последнюю точку последней линии и первую точку первой линии

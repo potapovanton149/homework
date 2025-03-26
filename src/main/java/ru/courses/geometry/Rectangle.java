@@ -7,8 +7,8 @@ public class Rectangle extends Figure{
         return dimension2;
     }
 
-    public Rectangle(Point point, int dimension, int dimension2) {
-        super(point, dimension);
+    public Rectangle(Point2D point2D, int dimension, int dimension2) {
+        super(point2D, dimension);
         this.dimension2 = dimension2;
     }
 

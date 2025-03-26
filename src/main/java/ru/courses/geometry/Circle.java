@@ -2,8 +2,8 @@ package ru.courses.geometry;
 
 public class Circle extends Figure{
 
-    public Circle(Point point, int dimension) {
-        super(point, dimension);
+    public Circle(Point2D point2D, int dimension) {
+        super(point2D, dimension);
     }
 
     public Circle(int x, int y, int dimension){

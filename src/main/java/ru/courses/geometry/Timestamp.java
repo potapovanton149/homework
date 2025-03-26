@@ -2,12 +2,21 @@ package ru.courses.geometry;
 
 
 import java.time.LocalTime;
-import java.util.Date;
+
 
 public class Timestamp {
-    LocalTime localTime;
+    private LocalTime localTime;
 
-    LocalTime(int hour, int minute){
+    public String getLocalTime() {
+        return localTime.toString();
+    }
+
+    public Timestamp(int hour, int minute){
         this.localTime = LocalTime.of(hour, minute);
+    }
+
+    @Override
+    public String toString() {
+        return localTime.toString();
     }
 }
