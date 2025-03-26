@@ -1,44 +1,43 @@
-package ru.courses.university; /**
- * В ТЗ сказано "Оценки - массив целых чисел", значит в конструктор будем передать только массив
- * или список оценок, а под капотом для удобства будем работать с листом. При этом перегрузил
- * метод addGrades так, что можно добавить как одну оценку, так и перечень аргументов.
- */
+package ru.courses.university;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Student {
+public final class Student {
     private String name;
     private List<Integer> grades;
+    private ImplementationOfTheContract contract;
 
-    Student(String name) {
+    public Student(String name, ImplementationOfTheContract contract) {
         this.name = name;
         grades = new ArrayList<>();
+        this.contract = contract;
     }
 
-    Student(String name, int... grade) {
+    public Student(String name, ImplementationOfTheContract contract, int... grade) {
         this.name = name;
         this.grades = new ArrayList<>();
+        this.contract = contract;
         for (int i : grade) {
-            if (i < 2 || i > 5) {
-                throw new IllegalArgumentException("Оценка не может быть меньше 2 или больше 5");
+            if (contract.contractValidation(i)) {
+                throw new IllegalArgumentException("Оценка не соответствует примененному правилу");
             }
             grades.add(i);
         }
     }
 
     public void addGrades(int grade) {
-        if (grade < 2 || grade > 5) {
-            throw new IllegalArgumentException("Оценка не может быть меньше 2 или больше 5");
+        if (contract.contractValidation(grade)) {
+            throw new IllegalArgumentException("Оценка не соответствует примененному правилу");
         }
         grades.add(grade);
     }
 
     public void addGrades(int... grades) {
         for (int i : grades) {
-            if (i < 2 || i > 5) {
-                throw new IllegalArgumentException("Оценка не может быть меньше 2 или больше 5");
+            if (contract.contractValidation(i)) {
+                throw new IllegalArgumentException("Оценка не соответствует примененному правилу");
             }
             this.grades.add(i);
         }

@@ -1,15 +1,20 @@
 import ru.courses.geometry.*;
+import ru.courses.university.ImplementationOfTheContract;
+import ru.courses.university.Student;
 
 
 public class Main {
     public static void main(String[] args) {
-        ExtendedPoint3D extendedPoint3D_1 = ExtendedPoint3D.ofColor(3,"красного");
-        System.out.println(extendedPoint3D_1);
+       try {
+           Student student = new Student("Anton", new ImplementationOfTheContract(), 4, 6, 8, 10, 12, 14);
+           //валидно
+           System.out.println(student);
 
-        ExtendedPoint3D extendedPoint3D_2 = ExtendedPoint3D.ofTime(4,2, 5, 11, 0);
-        System.out.println(extendedPoint3D_2);
-
-        ExtendedPoint3D extendedPoint3D_3 = ExtendedPoint3D.ofColorAndTime(7, 7, "желтого", 15, 35);
-        System.out.println(extendedPoint3D_3);
+           //пытаемся добавить не четную оценку
+           student.addGrades(5);
+           System.out.println(student);
+       } catch (Exception e){
+           System.out.println(e.getMessage());
+       }
     }
 }
