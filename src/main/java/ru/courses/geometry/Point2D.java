@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Point2D extends Point {
     private int y;
 
-    Point2D(int x, int y) {
+    public Point2D(int x, int y) {
         super(x);
         this.y = y;
     }
@@ -33,5 +33,10 @@ public class Point2D extends Point {
     @Override
     public int hashCode() {
         return Objects.hash(getX(), y);
+    }
+
+    @Override
+    public Point2D clone(){
+        return new Point2D(getX(), getY());
     }
 }
