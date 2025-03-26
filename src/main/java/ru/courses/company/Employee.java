@@ -6,12 +6,12 @@ public class Employee {
     private String name;
     private Department department;
 
-    public Employee(String name, Department department){
+    Employee(String name, Department department){
         this.name = name;
         this.department = department;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 

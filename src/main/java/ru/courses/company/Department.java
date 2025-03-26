@@ -4,15 +4,15 @@ public class Department {
     private String nameDepartament;
     private Employee boss;
 
-    public String getNameDepartament() {
+    String getNameDepartament() {
         return nameDepartament;
     }
 
-    public Employee getBoss() {
+    Employee getBoss() {
         return boss;
     }
 
-    public Department(String nameDepartament, String nameBoss){
+    Department(String nameDepartament, String nameBoss){
         this.nameDepartament = nameDepartament;
         this.boss = new Employee(nameBoss, this);
     }
