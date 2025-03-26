@@ -14,44 +14,44 @@ public class ExtendedPoint3D {
 
 
     /// для трех точек с передачей цвета
-    public static ExtendedPoint3D of(int x, String color) {
+    public static ExtendedPoint3D ofColor(int x, String color) {
         return new ExtendedPoint3D(new Point3D(x, 0, 0), new Color(color), null);
     }
 
-    public static ExtendedPoint3D of(int x, int y, String color) {
+    public static ExtendedPoint3D ofColor(int x, int y, String color) {
         return new ExtendedPoint3D(new Point3D(x, y, 0), new Color(color), null);
     }
 
 
-    public static ExtendedPoint3D of(int x, int y, int z, String color) {
+    public static ExtendedPoint3D ofColor(int x, int y, int z, String color) {
         return new ExtendedPoint3D(new Point3D(x, y, z), new Color(color), null);
     }
 
     /// для трех точек с передачей времени
-    public static ExtendedPoint3D of(int x, int hour, int minute) {
+    public static ExtendedPoint3D ofTime(int x, int hour, int minute) {
         return new ExtendedPoint3D(new Point3D(x, 0, 0), null, new Timestamp(hour, minute));
     }
 
-    public static ExtendedPoint3D of(int x, int y, int hour, int minute) {
+    public static ExtendedPoint3D ofTime(int x, int y, int hour, int minute) {
         return new ExtendedPoint3D(new Point3D(x, y, 0), null, new Timestamp(hour, minute));
     }
 
 
-    public static ExtendedPoint3D of(int x, int y, int z, int hour, int minute) {
+    public static ExtendedPoint3D ofTime(int x, int y, int z, int hour, int minute) {
         return new ExtendedPoint3D(new Point3D(x, y, z), null, new Timestamp(hour, minute));
     }
 
     /// для трех точек с передачей и цвета и времени
-    public static ExtendedPoint3D of(int x, String color, int hour, int minute) {
+    public static ExtendedPoint3D ofColorAndTime(int x, String color, int hour, int minute) {
         return new ExtendedPoint3D(new Point3D(x, 0, 0), new Color(color), new Timestamp(hour, minute));
     }
 
-    public static ExtendedPoint3D of(int x, int y, String color, int hour, int minute) {
+    public static ExtendedPoint3D ofColorAndTime(int x, int y, String color, int hour, int minute) {
         return new ExtendedPoint3D(new Point3D(x, y, 0), new Color(color), new Timestamp(hour, minute));
     }
 
 
-    public static ExtendedPoint3D of(int x, int y, int z, String color, int hour, int minute) {
+    public static ExtendedPoint3D ofColorAndTime(int x, int y, int z, String color, int hour, int minute) {
         return new ExtendedPoint3D(new Point3D(x, y, z), new Color(color), new Timestamp(hour, minute));
     }
 
