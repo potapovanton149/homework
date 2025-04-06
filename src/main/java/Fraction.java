@@ -1,10 +1,11 @@
 public class Fraction extends Number {
+
     private final int numerator;
     private final int denominator;
 
     public Fraction(int numerator, int denominator) {
-        if (numerator < 0) {
-            throw new IllegalArgumentException("Числитель не может быть отрицательным");
+        if (denominator < 0) {
+            throw new IllegalArgumentException("Знаменатель не может быть отрицательным");
         }
         this.numerator = numerator;
         this.denominator = denominator;
@@ -17,7 +18,7 @@ public class Fraction extends Number {
     public int getDenominator() {
         return denominator;
     }
-
+  
     public Fraction sum(Fraction f) {
         int newDenominator = this.getDenominator() * f.getDenominator();
         int newNumerator = this.getNumerator() * f.getDenominator() +

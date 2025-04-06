@@ -15,6 +15,7 @@ public class PolyLine implements Measurable{
     }
 
     public PolyLine fromPoint(List<Point> listPoint) {
+
         PolyLine polyLine = new PolyLine();
         polyLine.lineList = new ArrayList<>();
 
