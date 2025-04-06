@@ -1,5 +1,5 @@
 public class Square {
-    Point point;
+    private Point point;
     private int sideLength;
 
     public void setPoint(Point point) {
@@ -11,6 +11,9 @@ public class Square {
     }
 
     public void setSideLength(int sideLength) {
+        if (sideLength <= 0) {
+            throw new IllegalArgumentException("Длина квадрата не может быть меньше или равно 0");
+        }
         this.sideLength = sideLength;
     }
 
@@ -23,12 +26,18 @@ public class Square {
     }
 
     public Square(Point point, int sideLength) {
+        if (sideLength <= 0) {
+            throw new IllegalArgumentException("Длина квадрата не может быть меньше или равно 0");
+        }
         this.point = point;
         this.sideLength = sideLength;
     }
 
-    public Square(int x, int y, int sideLength){
-        this.point = new Point(x,y);
+    public Square(int x, int y, int sideLength) {
+        if (sideLength <= 0) {
+            throw new IllegalArgumentException("Длина квадрата не может быть меньше или равно 0");
+        }
+        this.point = new Point(x, y);
         this.sideLength = sideLength;
     }
 

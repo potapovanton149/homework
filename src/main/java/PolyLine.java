@@ -15,6 +15,7 @@ public class PolyLine {
     }
 
     public PolyLine fromPoint(List<Point> listPoint) {
+
         PolyLine polyLine = new PolyLine();
         polyLine.lineList = new ArrayList<>();
 
