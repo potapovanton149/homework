@@ -1,4 +1,5 @@
-public class Fraction {
+public class Fraction extends Number {
+
     private final int numerator;
     private final int denominator;
 
@@ -17,29 +18,45 @@ public class Fraction {
     public int getDenominator() {
         return denominator;
     }
-
-    public Fraction sum(Fraction f){
+  
+    public Fraction sum(Fraction f) {
         int newDenominator = this.getDenominator() * f.getDenominator();
         int newNumerator = this.getNumerator() * f.getDenominator() +
                 f.getNumerator() * this.getDenominator();
         return new Fraction((newNumerator), newDenominator);
     }
 
-    public Fraction sum(int number){
+    public Fraction sum(int number) {
         Fraction fraction = new Fraction(number, 1);
         return sum(fraction);
     }
 
-    public Fraction minus(Fraction f){
+    public Fraction minus(Fraction f) {
         int newDenominator = this.getDenominator() * f.getDenominator();
         int newNumerator = this.getNumerator() * f.getDenominator() -
                 f.getNumerator() * this.getDenominator();
         return new Fraction(newNumerator, newDenominator);
     }
 
-    public Fraction minus(int number){
+    public Fraction minus(int number) {
         Fraction fraction = new Fraction(number, 1);
         return minus(fraction);
+    }
+
+    public int intValue() {
+        return (int) numerator / denominator;
+    }
+
+    public long longValue() {
+        return (long) numerator / denominator;
+    }
+
+    public float floatValue() {
+        return (float) numerator / denominator;
+    }
+
+    public double doubleValue() {
+        return (double) numerator / denominator;
     }
 
     @Override
