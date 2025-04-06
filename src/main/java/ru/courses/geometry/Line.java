@@ -1,5 +1,7 @@
 package ru.courses.geometry;
 
+import java.util.Objects;
+
 public class Line implements Measurable {
     private Point2D startLine;
     private Point2D endLine;
@@ -20,12 +22,12 @@ public class Line implements Measurable {
         this.endLine = endLine;
     }
 
-    Line(Point2D startLine, Point2D endLine) {
+    public Line(Point2D startLine, Point2D endLine) {
         this.startLine = startLine;
         this.endLine = endLine;
     }
 
-    Line(int x1, int y1, int x2, int y2) {
+    public Line(int x1, int y1, int x2, int y2) {
         this.startLine = new Point2D(x1, y2);
         this.endLine = new Point2D(x2, y2);
     }
@@ -43,5 +45,22 @@ public class Line implements Measurable {
                 startLine.getY(),
                 endLine.getX(),
                 endLine.getY());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Line line = (Line) o;
+        return Objects.equals(startLine, line.startLine) && Objects.equals(endLine, line.endLine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(startLine, endLine);
+    }
+
+    @Override
+    public Line clone(){
+        return new Line(getStartLine(), getEndLine());
     }
 }
