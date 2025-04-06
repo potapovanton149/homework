@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PolyLine {
+public class PolyLine implements Measurable{
     protected List<Line> lineList;
 
     protected PolyLine() {
@@ -35,7 +35,7 @@ public class PolyLine {
     public double getLength() {
         double res = 0;
         for (Line value : lineList) {
-            res += value.getLenght();
+            res += value.getLength();
         }
         return res;
     }

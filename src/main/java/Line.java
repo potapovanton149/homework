@@ -1,4 +1,4 @@
-public class Line {
+public class Line implements Measurable{
     private Point startLine;
     private Point endLine;
 
@@ -28,7 +28,7 @@ public class Line {
         this.endLine = new Point(x2, y2);
     }
 
-    public double getLenght(){
+    public double getLength(){
         double deltaX = endLine.getX() - startLine.getX();
         double deltaY = endLine.getY() - startLine.getY();
         return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
