@@ -1,29 +1,31 @@
 package ru.courses.mathematics;
 
+import java.util.Objects;
+
 public class Fraction extends Number {
-    private final int NUMERATOR;
-    private final int DENOMINATOR;
+    private final int numerator;
+    private final int denominator;
 
     public Fraction(int numerator, int denominator) {
         if (numerator < 0) {
             throw new IllegalArgumentException("Числитель не может быть отрицательным");
         }
-        this.NUMERATOR = numerator;
-        this.DENOMINATOR = denominator;
+        this.numerator = numerator;
+        this.denominator = denominator;
     }
 
-    public int getNUMERATOR() {
-        return NUMERATOR;
+    public int getNumerator() {
+        return numerator;
     }
 
-    public int getDENOMINATOR() {
-        return DENOMINATOR;
+    public int getDenominator() {
+        return denominator;
     }
 
     public Fraction sum(Fraction f){
-        int newDenominator = this.getDENOMINATOR() * f.getDENOMINATOR();
-        int newNumerator = this.getNUMERATOR() * f.getDENOMINATOR() +
-                f.getNUMERATOR() * this.getDENOMINATOR();
+        int newDenominator = this.getDenominator() * f.getDenominator();
+        int newNumerator = this.getNumerator() * f.getDenominator() +
+                f.getNumerator() * this.getDenominator();
         return new Fraction((newNumerator), newDenominator);
     }
 
@@ -33,9 +35,9 @@ public class Fraction extends Number {
     }
 
     public Fraction minus(Fraction f){
-        int newDenominator = this.getDENOMINATOR() * f.getDENOMINATOR();
-        int newNumerator = this.getNUMERATOR() * f.getDENOMINATOR() -
-                f.getNUMERATOR() * this.getDENOMINATOR();
+        int newDenominator = this.getDenominator() * f.getDenominator();
+        int newNumerator = this.getNumerator() * f.getDenominator() -
+                f.getNumerator() * this.getDenominator();
         return new Fraction(newNumerator, newDenominator);
     }
 
@@ -45,25 +47,37 @@ public class Fraction extends Number {
     }
 
     public int intValue(){
-        return NUMERATOR / DENOMINATOR;
+        return numerator / denominator;
     }
 
     public long longValue(){
-        return NUMERATOR / DENOMINATOR;
+        return numerator / denominator;
     }
 
     public float floatValue(){
-        return NUMERATOR / DENOMINATOR;
+        return numerator / denominator;
     }
 
     public double doubleValue(){
-        return (double) NUMERATOR / DENOMINATOR;
+        return (double) numerator / denominator;
     }
 
     @Override
     public String toString() {
-        return "{" + NUMERATOR +
-                "/" + DENOMINATOR +
+        return "{" + numerator +
+                "/" + denominator +
                 "}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Fraction fraction = (Fraction) o;
+        return numerator == fraction.numerator && denominator == fraction.denominator;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numerator, denominator);
     }
 }

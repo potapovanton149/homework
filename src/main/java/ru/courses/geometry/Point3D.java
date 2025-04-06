@@ -2,7 +2,7 @@ package ru.courses.geometry;
 
 import java.util.Objects;
 
-public class Point3D extends Point {
+public class Point3D extends Point2D {
     private int z;
 
     Point3D(int x, int y, int z){
@@ -20,7 +20,7 @@ public class Point3D extends Point {
 
     @Override
     public String toString() {
-        return String.format("{%d; %d; %d}", getX(), getY(), z);
+        return String.format("{%d, %d, %d}", getX(), getY(), z);
     }
 
     @Override

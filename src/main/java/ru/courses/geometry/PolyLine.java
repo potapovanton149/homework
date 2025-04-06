@@ -1,7 +1,9 @@
 package ru.courses.geometry;
 
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PolyLine implements Measurable {
     protected List<Line> lineList;
@@ -16,12 +18,12 @@ public class PolyLine implements Measurable {
         return polyLine;
     }
 
-    public PolyLine fromPoint(List<Point> listPoint) {
+    public PolyLine fromPoint(List<Point2D> listPoint2D) {
         PolyLine polyLine = new PolyLine();
         polyLine.lineList = new ArrayList<>();
 
-        for (int i = 0; i < listPoint.size() - 1; i++) {
-            Line line = new Line(listPoint.get(i), listPoint.get(i + 1));
+        for (int i = 0; i < listPoint2D.size() - 1; i++) {
+            Line line = new Line(listPoint2D.get(i), listPoint2D.get(i + 1));
             polyLine.lineList.add(line);
         }
 
@@ -50,5 +52,32 @@ public class PolyLine implements Measurable {
             i++;
         }
         return res;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PolyLine polyLine = (PolyLine) o;
+
+        Line[] lineList1 = lineList.toArray(new Line[0]);
+        Line[] lineList2 = polyLine.lineList.toArray(new Line[0]);
+
+        if (lineList2.length != lineList1.length){return false;}
+
+        boolean res = true;
+
+        for (int i = 0; i < lineList.size(); i++) {
+            if(lineList1[i] == lineList2[i]){
+                break;
+            }
+        }
+
+        return res;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(lineList);
     }
 }
